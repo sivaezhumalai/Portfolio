@@ -11,7 +11,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #bab9ba;
   background-color: black !important;
 }
 
@@ -42,6 +41,7 @@ svg {
 .navbar-brand:hover {
   font-size: 25px;
   transition: 0.1s;
+  color: #8E3200;
 }
 
 .nav-item {
@@ -113,6 +113,11 @@ svg {
   font-weight: 500;
   font-style: italic;
   font-family: -webkit-body;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #8E3200;
 }
 
 .back-text h1 {
@@ -124,17 +129,16 @@ svg {
   animation-timing-function: ease;
 }
 
-/* @keyframes backText {
-    0% {
-        margin-right: 300px;
-    }
-    50% {
-        margin-left: 150px;
-    }
-    100% {
-        margin-left: 0px;
-    }
-} */
+@keyframes backText {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .back-text p {
   font-size: 30px;
@@ -226,9 +230,11 @@ svg {
 
 .card-sec {
   margin-top: 100px;
-  /* display: flex;
-    align-content: space-between;
-    justify-content: center; */
+  transition: transform 0.3s ease;
+}
+
+.card-sec:hover {
+  transform: scale(1.05);
 }
 
 /* -----------Footer----------- */
