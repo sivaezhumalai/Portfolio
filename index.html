@@ -23,8 +23,14 @@
             >
           </div>
 
-          <!-- Mobile menu button -->
-          <button class="md:hidden text-white" id="mobile-menu-button">
+          <!-- Animated Mobile menu button -->
+          <button
+            class="md:hidden text-white focus:outline-none transition-transform duration-300"
+            id="mobile-menu-button"
+            aria-label="Toggle Menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
             <svg
               class="h-6 w-6"
               fill="none"
@@ -42,34 +48,48 @@
 
           <!-- Desktop menu -->
           <div class="hidden md:flex items-center space-x-4">
-            <a href="#home" class="text-white hover:text-gray-300">Home</a>
-            <a href="#gallery" class="text-white hover:text-gray-300"
+            <a
+              href="#home"
+              class="text-white hover:text-gray-300 transition duration-300"
+              >Home</a
+            >
+            <a
+              href="#gallery"
+              class="text-white hover:text-gray-300 transition duration-300"
               >Gallery</a
             >
-            <a href="#about" class="text-white hover:text-gray-300">About</a>
+            <a
+              href="#about"
+              class="text-white hover:text-gray-300 transition duration-300"
+              >About</a
+            >
             <div class="relative group">
-              <button class="text-white hover:text-gray-300">Contacts</button>
+              <button
+                class="text-white hover:text-gray-300 transition duration-300"
+              >
+                Contacts
+              </button>
               <div
                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block"
               >
                 <a
                   href="https://www.instagram.com/siva_ezhumalai_2002/"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300"
                   >Instagram</a
                 >
                 <a
                   href="https://www.facebook.com/profile.php?id=100010964354732"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300"
                   >Facebook</a
                 >
                 <a
                   href="mailto:sivaezhumalai2002@gmail.com"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300"
                   >Email</a
                 >
                 <a
                   href="contact.html"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300"
                   >Contact Form</a
                 >
               </div>
@@ -81,10 +101,26 @@
       <!-- Mobile menu -->
       <div class="hidden md:hidden bg-gray-800" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="#home" class="block text-white px-3 py-2">Home</a>
-          <a href="#gallery" class="block text-white px-3 py-2">Gallery</a>
-          <a href="#about" class="block text-white px-3 py-2">About</a>
-          <a href="#contact" class="block text-white px-3 py-2">Contact</a>
+          <a
+            href="#home"
+            class="block text-white px-3 py-2 transition duration-300"
+            >Home</a
+          >
+          <a
+            href="#gallery"
+            class="block text-white px-3 py-2 transition duration-300"
+            >Gallery</a
+          >
+          <a
+            href="#about"
+            class="block text-white px-3 py-2 transition duration-300"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="block text-white px-3 py-2 transition duration-300"
+            >Contact</a
+          >
         </div>
       </div>
     </nav>
@@ -293,6 +329,26 @@
           }
         }, 400);
       }
+
+      // Mobile menu toggle functionality
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          const isExpanded = this.getAttribute("aria-expanded") === "true";
+          const hamburgerIcon = `<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+          const closeIcon = `<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+
+          this.setAttribute("aria-expanded", !isExpanded);
+          mobileMenu.classList.toggle("hidden");
+
+          // Toggle between hamburger and close icons with transition
+          if (isExpanded) {
+            this.innerHTML = hamburgerIcon;
+          } else {
+            this.innerHTML = closeIcon;
+          }
+        });
     </script>
   </body>
 </html>
